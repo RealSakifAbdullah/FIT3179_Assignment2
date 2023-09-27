@@ -1,0 +1,45 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 300,
+    "height": 200,
+    "data": {
+        "url": "https://raw.githubusercontent.com/RealSakifAbdullah/FIT3179_Assignment2/main/data/missing_migrants.csv"
+    },
+    "transform": [
+        {
+            "fold": [
+                "Number of Males",
+                "Number of Females",
+                "Number of Children"
+            ],
+            "as": [
+                "series",
+                "value"
+            ]
+        }
+    ],
+    "mark": {
+        "type": "area"
+    },
+    "encoding": {
+        "x": {
+            "timeUnit": "year",
+            "field": "Incident year",
+            "axis": {
+                "format": "%Y"
+            },
+            "title": "Year"
+        },
+        "y": {
+            "aggregate": "sum",
+            "field": "value",
+            "stack": true,
+             "title":"Number of People Dead or Missing"
+        },
+        "color": {
+            "field": "series",
+            "type": "nominal",
+            "title": "Legend"
+        }
+    }
+}

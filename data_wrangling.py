@@ -1,18 +1,10 @@
 import pandas as pd
 
-# Replace 'your_file.csv' with the path to your CSV file
+# Load your existing CSV file into a DataFrame
 df = pd.read_csv('https://raw.githubusercontent.com/RealSakifAbdullah/FIT3179_Assignment2/main/data/missing_migrants.csv')
 
-region_counts = df['Region of Incident'].value_counts()
+# Remove ' (P)' from the column
+df['Region of Origin'] = df['Region of Origin'].str.replace(" (P)", "")
 
-# Create a DataFrame from the Series
-df_counts = region_counts.reset_index()
-df_counts.columns = ['Region of Incident', 'Count']
-
-# Specify the file path where you want to save the CSV file
-csv_file_path = 'region_counts.csv'
-
-# Save the DataFrame to a CSV file
-df_counts.to_csv(csv_file_path, index=False)
-
-# Now you have a CSV file named 'region_counts.csv' with the counts
+# Save the modified DataFrame to a new CSV file
+df.to_csv('test.csv', index=False)
