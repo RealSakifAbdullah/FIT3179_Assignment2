@@ -1,0 +1,68 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url": "https://raw.githubusercontent.com/RealSakifAbdullah/FIT3179_Assignment2/main/data/missing_migrants.csv"
+    },
+    "transform": [
+        {
+            "aggregate": [
+                {
+                    "op": "count",
+                    "as": "total"
+                }
+            ],
+            "groupby": [
+                "Region of Origin",
+                "Region of Incident"
+            ]
+        }
+    ],
+    "encoding": {
+        "y": {
+            "field": "Region of Origin",
+            "type": "ordinal"
+        },
+        "x": {
+            "field": "Region of Incident",
+            "type": "ordinal"
+        }
+    },
+    "layer": [
+        {
+            "mark": "rect",
+            "encoding": {
+                "color": {
+                    "field": "total",
+                    "type": "quantitative",
+                    "title": "Count of Records",
+                    "legend": {
+                        "direction": "horizontal",
+                        "gradientLength": 120
+                    }
+                }
+            }
+        },
+        {
+            "mark": "text",
+            "encoding": {
+                "text": {
+                    "field": "total",
+                    "type": "quantitative"
+                },
+                "color": {
+                    "condition": {
+                        "test": "datum['total'] < 40",
+                        "value": "black"
+                    },
+                    "value": "white"
+                }
+            }
+        }
+    ],
+    "config": {
+        "axis": {
+            "grid": true,
+            "tickBand": "extent"
+        }
+    }
+}
