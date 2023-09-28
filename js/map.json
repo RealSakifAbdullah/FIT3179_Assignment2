@@ -49,44 +49,61 @@
       }
     },
     {
-      "data": {
-        "url": "https://raw.githubusercontent.com/RealSakifAbdullah/FIT3179_Homework_Week9/main/data/missing_migrants.csv"
-      },
-      "mark": {
-        "type": "circle",
-        "tooltip": {
-          "content": "data"
+      "transform": [
+        {
+          "lookup": "properties.CONTINENT",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/RealSakifAbdullah/FIT3179_Assignment2/main/data/region_counts.csv"
+            },
+            "key": "Region of Incident",
+            "fields": [
+              "Count"
+            ]
+          }
         }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white"
       },
       "encoding": {
         "color": {
-          "field": "Number of Dead",
+          "field": "Count",
           "type": "quantitative",
-          "title": "Number of Dead",
           "scale": {
             "type": "threshold",
             "domain": [
-              1,
-              5,
-              10,
-              100
+              0,
+              1000,
+              2000,
+              3000,
+              4000,
+              5000
             ],
             "range": [
-              "#fdbe85",
-              "#fd8d3c",
-              "#e6550d",
-              "#a63603"
+              "#DEEDCF",
+              "#BFE1B0",
+              "#99D492",
+              "#74C67A",
+              "#56B870",
+              "#39A96B",
+              "#228A29"
             ]
           }
         },
-        "longitude": {
-          "field": "longitude",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "latitude",
-          "type": "quantitative"
-        }
+        "tooltip": [
+          {
+            "field": "properties.CONTINENT",
+            "type": "nominal",
+            "title": "Continent"
+          },
+          {
+            "field": "Count",
+            "type": "quantitative",
+            "title": "Number of Incidents"
+          }
+        ]
       }
     },
     {
