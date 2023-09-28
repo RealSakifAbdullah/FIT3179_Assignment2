@@ -99,9 +99,9 @@
             "title": "Continent"
           },
           {
-            "field": "properties.NAME",
+            "field": "properties.REGION_WB",
             "type": "nominal",
-            "title": "Country"
+            "title": "Region"
           },
           {
             "field": "Count",
