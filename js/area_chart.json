@@ -24,7 +24,7 @@
     "encoding": {
         "x": {
             "timeUnit": "year",
-            "field": "Incident year",
+            "field": "Year",
             "axis": {
                 "format": "%Y"
             },

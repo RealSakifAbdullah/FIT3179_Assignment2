@@ -14,14 +14,23 @@
 </head>
 
 <body>
-
-  <div id="symbol_map"></div>
+  <h1>MISSING MIGRANT INCIDENTS</h1>
+  <div id="area_chart"></div>
+  <div id="bar_graph"></div>
+  <div id="treemap"></div>
 
   <script type="text/javascript">
 
-    var spec2 = "js/area_chart.json";
-    vegaEmbed('#symbol_map', spec2).then(function (result) {
-      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    var area_chart = "js/area_chart.json";
+    vegaEmbed('#area_chart', area_chart).then(function (result) {
+    }).catch(console.error);
+
+    var bar_graph = "js/bar_graph.json";
+    vegaEmbed('#bar_graph', bar_graph).then(function (result) {
+    }).catch(console.error);
+
+    var treemap = "js/treemap.json";
+    vegaEmbed('#treemap', treemap).then(function (result) {
     }).catch(console.error);
   </script>
 
