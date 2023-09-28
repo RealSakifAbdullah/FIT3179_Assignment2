@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Number of people dead in missing migrant cases",
+  "title": "Number of Migrant Incidents from 2014-2023",
   "width": 800,
   "height": 400,
   "data": {
