@@ -5,7 +5,7 @@
     },
     "params": [
         {
-            "name": "Population_Above",
+            "name": "Selected_Year",
             "value": 0,
             "bind": {
                 "input": "range",
@@ -18,17 +18,7 @@
     ],
     "transform": [
         {
-            "filter": "datum.Active > 0"
-        },
-        {
-            "filter": "datum.Deaths > 0"
-        },
-        {
-            "filter": "datum.Incident > Population_Above"
-        },
-        {
-            "calculate": "datum.Confirmed/datum.Population * 10000",
-            "as": "Cases per 10,000 Population"
+            "filter": "datum.Year == Selected_Year"
         }
     ],
     "mark": "bar",
