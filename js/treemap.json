@@ -3,7 +3,23 @@
     "data": {
         "url": "https://raw.githubusercontent.com/RealSakifAbdullah/FIT3179_Assignment2/main/data/missing_migrants.csv"
     },
+    "params": [
+        {
+            "name": "Selected_Year",
+            "value": 2014,
+            "bind": {
+                "input": "range",
+                "min": 2014,
+                "max": 2023,
+                "step": 1,
+                "name": "Year: "
+            }
+        }
+    ],
     "transform": [
+        {
+            "filter": "datum.Year == Selected_Year"
+        },
         {
             "aggregate": [
                 {

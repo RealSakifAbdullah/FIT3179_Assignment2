@@ -15,11 +15,15 @@
 
 <body>
   <h1>MISSING MIGRANT INCIDENTS</h1>
+  <div id="map"></div>
   <div id="area_chart"></div>
   <div id="bar_graph"></div>
   <div id="treemap"></div>
 
   <script type="text/javascript">
+    var map = "js/in_the_works.json";
+    vegaEmbed('#map', map).then(function (result) {
+    }).catch(console.error);
 
     var area_chart = "js/area_chart.json";
     vegaEmbed('#area_chart', area_chart).then(function (result) {

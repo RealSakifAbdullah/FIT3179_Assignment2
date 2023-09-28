@@ -6,7 +6,7 @@
     "params": [
         {
             "name": "Selected_Year",
-            "value": 0,
+            "value": 2014,
             "bind": {
                 "input": "range",
                 "min": 2014,
