@@ -1,7 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Number of Migrant Incidents from 2014-2023",
-  "width": 800,
+  "title": "Number of Migrant Incidents from 2014 to 2023",
+  "background": "transparent",
+  "width": 700,
   "height": 400,
   "data": {
     "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",

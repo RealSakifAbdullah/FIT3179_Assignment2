@@ -2,11 +2,21 @@
 <html>
 
 <head>
+  <title>Missing Migrant Incidents</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-
+  <style>
+    body {
+      font-family: "Lato", sans-serif
+    }
+  </style>
 
   <!-- CSS file -->
   <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
@@ -14,12 +24,123 @@
 </head>
 
 <body>
-  <h1>MISSING MIGRANT INCIDENTS</h1>
-  <div id="map"></div>
-  <div id="area_chart"></div>
-  <div id="bar_graph"></div>
-  <div id="treemap"></div>
 
+  <!-- Black bar -->
+  <div class="black-bar">
+    <h2 style="text-align: center;">MISSING MIGRANT INCIDENTS</h2>
+  </div>
+
+  <!-- Introduction -->
+  <div class="content">
+    <h2>Introduction</h2>
+    <p>In an increasingly interconnected world, the pursuit of better opportunities often leads individuals to
+      undertake perilous journeys across borders. The dreams of a brighter future, however, often meet the unforgiving
+      realities
+      of the migration experience. The Missing Migrants Project, an initiative spearheaded by the International
+      Organization for Migration (IOM) since 2014, endeavors to shed light on the tragic stories of those who embark
+      on
+      these treacherous paths and, in doing so, disappear from our collective consciousness.
+    </p>
+  </div>
+
+  <!-- Number of Missing Migrants -->
+  <div class="content">
+    <hr>
+    <h3 style="text-align: left;">Number of Missing Migrants</h3>
+
+    <p>From 2014 onwards, the International Organization for Migration (IOM) has recorded 9428 incidents where
+      migrants
+      have either gone missing or experienced fatality. Of these incidents:
+    </p>
+
+    <div class="container">
+      <div class="column">
+        <ul>
+          <li>2641 occurred in <span style="color:#228A29">North America</span></li>
+          <li>2329 occurred in Sub-Saharan Africa</li>
+          <li>2038 occurred in Middle East &amp; North Africa</li>
+          <li>1113 occurred in South Asia</li>
+          <li>818 occurred in Latin America &amp; Caribbean</li>
+          <li>476 occurred in Europe &amp; Central Asia</li>
+          <li>12 occurred in South America</li>
+        </ul>
+      </div>
+      <div class="column">
+        <div id="map"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Number of People Dead or Missing -->
+  <div class="content">
+    <hr>
+    <h3 style="text-align: left;">Number of People Dead or Missing</h3>
+
+    <div class="container">
+      <div class="column">
+        <div id="area_chart"></div>
+      </div>
+      <div class="column">
+        <p>
+          In the wake of these tragic incidents, a total of <span class="standout">39,759</span> lives have been forever
+          changed, with individuals either losing their lives or disappearing without a trace. Among these souls, <span
+            class="women">25% </span>were women, <span class="men">62.8%</span> were men, and <span
+            class="children">12.2%</span> were children. And whilst these numbers are high, it is crucial to acknowledge
+          the limitations of data collection in this context. The figures presented likely represent an
+          undercount, a sobering reminder of the complexities inherent in tracking those who vanish along migration
+          routes. These numbers serve as a stark reminder of the human cost behind migration, urging us to reflect on
+          the stories and lives behind the statistics.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Types of Incidents -->
+  <div class="content">
+    <hr>
+    <h3 style="text-align: left;">Types of Incidents</h3>
+    <div class="container">
+      <div class="column">
+        <p>The tapestry of incidents leading to a total of 9,248 cases encompasses heartbreaking tales of drowning in treacherous
+        waters, accidents that claimed 411 lives, and healthcare denied to 691 individuals when they needed it most. Hunger,
+        thirst, and the harsh elements have relentlessly snatched away 1,154 lives, while violence has cast its dark shadow over
+        781 others. Yet, within this mosaic of tragedy, 2,519 cases remain shrouded in mystery, their causes hidden from the
+        records. These numbers cease to be mere statistics; instead, they serve as powerful reminders of the human toll exacted
+        by the arduous journey of migration.
+        <br>
+        <p>The graph on the right shows the occurence of each type of incident for each year.</p>
+      </div>
+      <div class="column">
+        <div id="bar_graph"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Where are the migrants going -->
+  <div class="content">
+    <hr>
+    <h3 style="text-align: left;">Where are the migrants going?</h3>
+    <div id="treemap"></div>
+    <br>
+  </div>
+
+
+  <!-- Button to scroll to the top -->
+  <div class="grey-bar">
+    <button onclick="scrollToTop()" class="scroll-btn">Scroll to Top</button>
+  </div>
+  <script>
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Smooth scroll behavior
+      });
+    }
+  </script>
+
+  <!-- Get the graphs -->
   <script type="text/javascript">
     var map = "js/map.json";
     vegaEmbed('#map', map).then(function (result) {

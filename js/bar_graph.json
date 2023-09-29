@@ -24,11 +24,12 @@
     "mark": "bar",
     "encoding": {
         "x": {
-            "field": "Cause of Death"
-        },
-        "y": {
             "aggregate": "count",
             "title": "Number of incidents"
+        },
+        "y": {
+            "field": "Cause of Death",
+            "title":"Type of Incident"
         }
     }
 }

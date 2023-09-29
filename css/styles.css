@@ -1,8 +1,88 @@
-#symbol_map {
-	top:100px;
-	bottom: 100px; 
-	left: 100px;
-	right: 100px;
-	/*height: 1000px;
-	width: 800px;*/
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #f0f0f0;
+	padding-top: 90px;
+}
+
+p {
+	font-family: Roboto, Arial;
+}
+
+.content {
+	padding-left: 2rem;
+	padding-right: 2rem;
+	padding-bottom: 1rem;
+}
+
+/* Apply styles to the black bar */
+.black-bar {
+	background-color: black;
+	color: white;
+	padding: 10px 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+
+/* Apply styles to the grey bar at the bottom */
+.grey-bar {
+	background-color: #333;
+	color: white;
+	text-align: left;
+	padding: 10px 0;
+	bottom: 0;
+}
+
+.scroll-btn {
+	margin-left: 20px;
+	background-color: black;
+	color: white;
+	font-size: 16px;
+	height: 40px;
+	width: fit-content;
+	border-width: 0;
+	cursor: pointer;
+	padding: 10px 20px;
+	border-radius: 5px;
+}
+
+/* Style the button on hover */
+.scroll-btn:hover {
+	background-color: #171717;
+	/* Darker blue on hover */
+}
+
+.container {
+	display: flex;
+	justify-content: space-between;
+	/* Space evenly between the two columns */
+	/* Add some padding for spacing */
+}
+
+/* Style for each column */
+.column {
+	flex: auto;
+}
+
+.standout {
+	font-weight: bold;
+	color: green
+}
+
+.women {
+	font-weight: bold;
+	color: #F58518
+}
+
+.men {
+	font-weight: bold;
+	color: #E45756
+}
+
+.children {
+	font-weight: bold;
+	color: #4C78A8
 }
