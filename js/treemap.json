@@ -1,5 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width":300,
     "data": {
         "url": "https://raw.githubusercontent.com/RealSakifAbdullah/FIT3179_Assignment2/main/data/missing_migrants.csv"
     },
@@ -26,7 +27,7 @@
     ],
     "transform": [
         {
-            "filter": "datum.Year == Selected_Year"
+            "filter": " showAllYears ||datum.Year == Selected_Year"
         },
         {
             "aggregate": [
@@ -37,7 +38,7 @@
             ],
             "groupby": [
                 "Region of Origin",
-                "Region of Incident"
+                "Continent of Incident"
             ]
         }
     ],
@@ -47,7 +48,7 @@
             "type": "ordinal"
         },
         "x": {
-            "field": "Region of Incident",
+            "field": "Continent of Incident",
             "type": "ordinal"
         }
     },
@@ -75,10 +76,10 @@
                 },
                 "color": {
                     "condition": {
-                        "test": "datum['total'] < 40",
-                        "value": "black"
+                        "test": "datum['total'] > 75",
+                        "value": "white"
                     },
-                    "value": "white"
+                    "value": "black"
                 }
             }
         }
@@ -87,6 +88,9 @@
         "axis": {
             "grid": true,
             "tickBand": "extent"
+        },
+        "axisX": {
+            "labelAngle": 50
         }
     }
 }

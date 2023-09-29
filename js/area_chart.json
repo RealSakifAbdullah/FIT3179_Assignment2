@@ -34,12 +34,26 @@
             "aggregate": "sum",
             "field": "value",
             "stack": true,
-             "title":"Number of People Dead or Missing"
+            "title": "Number of People Dead or Missing"
         },
         "color": {
             "field": "series",
             "type": "nominal",
             "title": "Legend"
-        }
+        },
+        "tooltip": [
+            {
+                "field": "Year",
+                "type": "temporal",
+                "title": "Year",
+                "timeUnit": "year"
+            },
+            {
+                "aggregate": "sum",
+                "field": "value",
+                "type": "quantitative",
+                "title": "Total Incidents"
+            }
+        ]
     }
 }

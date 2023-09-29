@@ -1,5 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 350,
     "data": {
         "url": "https://raw.githubusercontent.com/RealSakifAbdullah/FIT3179_Assignment2/main/data/missing_migrants.csv"
     },
@@ -14,11 +15,19 @@
                 "step": 1,
                 "name": "Year: "
             }
+        },
+        {
+            "name": "showAllYears",
+            "value": false,
+            "bind": {
+                "input": "checkbox",
+                "name": "Show all years"
+            }
         }
     ],
     "transform": [
         {
-            "filter": "datum.Year == Selected_Year"
+            "filter": " showAllYears ||datum.Year == Selected_Year"
         }
     ],
     "mark": "bar",
@@ -29,7 +38,19 @@
         },
         "y": {
             "field": "Cause of Death",
-            "title":"Type of Incident"
-        }
+            "title": "Type of Incident"
+        },
+        "tooltip": [
+            {
+                "field": "Cause of Death",
+                "type": "nominal",
+                "title": "Incident Type: "
+            },
+            {
+                "aggregate": "count",
+                "type": "quantitative",
+                "title": "Number of Incidents: "
+            }
+        ]
     }
 }
