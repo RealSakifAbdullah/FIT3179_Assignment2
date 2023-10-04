@@ -4,13 +4,19 @@ import pandas as pd
 df = pd.read_csv('data/missing_migrants.csv')
 print(df.head())
 
-value_counts = df['RegionWB of Incident'].value_counts().reset_index()
+# Group the data by 'Year' and 'RegionWB of Incident', and then count occurrences
+result = df.groupby(['Year', 'RegionWB of Incident']).size().reset_index(name='Count')
 
-# Rename the columns in the new DataFrame
-value_counts.columns = ['RegionWB of Incident', 'Count']
+# Print the result
+print(result)
 
-# Display the new DataFrame
-print(value_counts)
+# value_counts = df['RegionWB of Incident'].value_counts().reset_index()
+
+# # Rename the columns in the new DataFrame
+# value_counts.columns = ['RegionWB of Incident', 'Count']
+
+# # Display the new DataFrame
+# print(value_counts)
 
 # # Define a function to map region to continent
 # def map_region_to_continent(region):
@@ -43,4 +49,4 @@ print(value_counts)
 # df['RegionWB of Incident'] = df['Region of Incident'].apply(map_region_to_continent)
 
 # # Save the modified DataFrame to a new CSV file
-value_counts.to_csv('regionwb_counts.csv', index=False)
+result.to_csv('regionwb_counts2.csv', index=False)
