@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Number of Migrant Incidents in each Region from 2014 to 2023",
+  "title": "Number of Migrant Incidents from 2014 to 2023",
   "background": "transparent",
   "width": 700,
   "height": 400,
@@ -14,6 +14,19 @@
   "projection": {
     "type": "equalEarth"
   },
+  "params": [
+    {
+      "name": "Year_selection",
+      "value": 2018,
+      "bind": {
+        "input": "range",
+        "min": 2014,
+        "max": 2023,
+        "step": 1,
+        "name": "Year:  "
+      }
+    }
+  ],
   "layer": [
     {
       "mark": {
@@ -55,13 +68,17 @@
           "lookup": "properties.REGION_WB",
           "from": {
             "data": {
-              "url": "https://raw.githubusercontent.com/RealSakifAbdullah/FIT3179_Assignment2/main/data/regionwb_counts.csv"
+              "url": "https://raw.githubusercontent.com/RealSakifAbdullah/FIT3179_Assignment2/main/data/regionwb_counts2.csv"
             },
-            "key": "RegionWB of Incident",
+            "key": "RegionWB_of_Incident",
             "fields": [
-              "Count"
+              "Count",
+              "Year"
             ]
           }
+        },
+        {
+          "filter": "datum.Year==Year_selection"
         }
       ],
       "mark": {
@@ -73,18 +90,32 @@
           "field": "Count",
           "type": "quantitative",
           "scale": {
-            "type": "sequential",
+            "type": "threshold",
             "domain": [
               0,
+              500,
+              1000,
+              1500,
+              2000,
               2500
             ],
             "range": [
               "#DEEDCF",
-              "#0d990a"
+              "#BFE1B0",
+              "#99D492",
+              "#74C67A",
+              "#56B870",
+              "#39A96B",
+              "#228A29"
             ]
           }
         },
         "tooltip": [
+          {
+            "field": "properties.CONTINENT",
+            "type": "nominal",
+            "title": "Continent"
+          },
           {
             "field": "properties.REGION_WB",
             "type": "nominal",
@@ -132,7 +163,7 @@
         },
         "opacity": {
           "condition": {
-            "test": "datum['properties.NAME'] == 'China' || datum['properties.NAME'] == 'Brazil' || datum['properties.NAME'] == 'Australia' || datum['properties.NAME'] == 'Malaysia' ||  datum['properties.NAME'] == 'Yemen' ||  datum['properties.NAME'] == 'United States of America' ||  datum['properties.NAME'] == 'Nigeria' ||  datum['properties.NAME'] == 'Russia' ||  datum['properties.NAME'] == 'United Kingdom' ||  datum['properties.NAME'] == 'India'",
+            "test": "datum['properties.NAME'] == 'China' || datum['properties.NAME'] == 'Brazil' || datum['properties.NAME'] == 'Australia' || datum['properties.NAME'] == 'Malaysia' ||  datum['properties.NAME'] == 'Yemen' ||  datum['properties.NAME'] == 'United States of America'",
             "value": 1
           },
           "value": 0

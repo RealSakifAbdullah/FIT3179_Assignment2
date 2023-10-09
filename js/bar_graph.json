@@ -1,6 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 350,
+    "width": 375,
+    "title": "Types of Migrant Incidents",
     "data": {
         "url": "https://raw.githubusercontent.com/RealSakifAbdullah/FIT3179_Assignment2/main/data/missing_migrants.csv"
     },
@@ -27,30 +28,58 @@
     ],
     "transform": [
         {
-            "filter": " showAllYears ||datum.Year == Selected_Year"
+            "filter": "showAllYears || datum.Year == Selected_Year"
         }
     ],
-    "mark": "bar",
-    "encoding": {
-        "x": {
-            "aggregate": "count",
-            "title": "Number of incidents"
-        },
-        "y": {
-            "field": "Cause of Death",
-            "title": "Type of Incident"
-        },
-        "tooltip": [
-            {
-                "field": "Cause of Death",
-                "type": "nominal",
-                "title": "Incident Type: "
-            },
-            {
-                "aggregate": "count",
-                "type": "quantitative",
-                "title": "Number of Incidents: "
+    "layer": [
+        {
+            "mark": "bar",
+            "encoding": {
+                "x": {
+                    "aggregate": "count",
+                    "title": "Number of incidents"
+                },
+                "y": {
+                    "field": "Cause of Death",
+                    "title": "Type of Incident"
+                },
+                "tooltip": [
+                    {
+                        "field": "Cause of Death",
+                        "type": "nominal",
+                        "title": "Incident Type: "
+                    },
+                    {
+                        "aggregate": "count",
+                        "type": "quantitative",
+                        "title": "Number of Incidents: "
+                    }
+                ]
             }
-        ]
-    }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "baseline": "middle"
+            },
+            "encoding": {
+                "x": {
+                    "aggregate": "count",
+                    "type": "quantitative",
+                    "title": "Number of incidents"
+                },
+                "y": {
+                    "field": "Cause of Death",
+                    "type": "nominal",
+                    "title": "Type of Incident"
+                },
+                "text": {
+                    "aggregate": "count",
+                    "field": "Number of Incidents",
+                    "type": "quantitative"
+                }
+            }
+        }
+    ]
 }

@@ -2,7 +2,8 @@ body {
 	margin: 0;
 	padding: 0;
 	background-color: #f0f0f0;
-	padding-top: 90px;
+	padding-top: 100px;
+	font-size: larger;
 }
 
 p {
@@ -10,8 +11,8 @@ p {
 }
 
 .content {
-	padding-left: 2rem;
-	padding-right: 2rem;
+	padding-left: 13rem;
+	padding-right: 13rem;
 	padding-bottom: 1rem;
 }
 
@@ -37,10 +38,10 @@ p {
 }
 
 .scroll-btn {
-	margin-left: 20px;
+	margin-left: 10rem;
 	background-color: black;
 	color: white;
-	font-size: 16px;
+	font-size: large;
 	height: 40px;
 	width: fit-content;
 	border-width: 0;
@@ -57,14 +58,17 @@ p {
 
 .container {
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-evenly;
 	/* Space evenly between the two columns */
 	/* Add some padding for spacing */
 }
 
 /* Style for each column */
 .column {
-	flex: auto;
+	flex:auto;
+	width: 100%;
+	margin-right: 1rem;
+	/* margin-left: 1rem; */
 }
 
 .standout {

@@ -1,8 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Number of people dead in missing migrant cases",
-    "width": 800,
-    "height": 400,
+    "title": "Number of Migrant Incidents from 2014 to 2023",
+    "background": "transparent",
     "data": {
         "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
         "format": {
@@ -10,9 +9,24 @@
             "feature": "ne_110m_admin_0_countries"
         }
     },
+    "width": 800,
+    "height": 400,
     "projection": {
         "type": "equalEarth"
     },
+    "params": [
+        {
+            "name": "Year_selection",
+            "value": 2018,
+            "bind": {
+                "input": "range",
+                "min": 2014,
+                "max": 2023,
+                "step": 1,
+                "name": "Year:  "
+            }
+        }
+    ],
     "layer": [
         {
             "mark": {
@@ -49,18 +63,30 @@
             }
         },
         {
+            "data": {
+                "url": "https://raw.githubusercontent.com/RealSakifAbdullah/FIT3179_Assignment2/main/data/regionwb_counts2.csv"
+            },
             "transform": [
                 {
-                    "lookup": "properties.CONTINENT",
+                    "lookup": "RegionWB_of_Incident",
                     "from": {
                         "data": {
-                            "url": "https://raw.githubusercontent.com/RealSakifAbdullah/FIT3179_Assignment2/main/data/region_counts.csv"
+                            "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
+                            "format": {
+                                "type": "topojson",
+                                "feature": "ne_110m_admin_0_countries"
+                            }
                         },
-                        "key": "Region of Incident",
+                        "key": "properties.REGION_WB",
                         "fields": [
-                            "Count"
+                            "properties",
+                            "type",
+                            "geometry"
                         ]
                     }
+                },
+                {
+                    "filter": "datum.Year==Year_selection"
                 }
             ],
             "mark": {
@@ -70,24 +96,16 @@
             "encoding": {
                 "color": {
                     "field": "Count",
+                    "title": "Test",
                     "type": "quantitative",
                     "scale": {
-                        "type": "threshold",
+                        "type": "sequential",
                         "domain": [
                             0,
-                            1000,
-                            2000,
-                            3000,
-                            4000,
-                            5000
+                            500
                         ],
                         "range": [
                             "#DEEDCF",
-                            "#BFE1B0",
-                            "#99D492",
-                            "#74C67A",
-                            "#56B870",
-                            "#39A96B",
                             "#228A29"
                         ]
                     }
@@ -99,11 +117,15 @@
                         "title": "Continent"
                     },
                     {
+                        "field": "properties.REGION_WB",
+                        "type": "nominal",
+                        "title": "Region"
+                    },
+                    {
                         "field": "Count",
                         "type": "quantitative",
-                        "title":"Number of Incidents"
+                        "title": "Number of Incidents"
                     }
-                   
                 ]
             }
         },
