@@ -1,10 +1,10 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Types of Migrant Incidents",
+    "title": "Number of Migrant Incidents per type",
     "data": {
         "url": "https://raw.githubusercontent.com/RealSakifAbdullah/FIT3179_Assignment2/main/data/missing_migrants.csv"
     },
-    "width":325,
+    "width": 325,
     "params": [
         {
             "name": "Selected_Year",

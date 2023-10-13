@@ -76,7 +76,7 @@
             "type": "sequential",
             "domain": [
               0,
-              2500
+              3000
             ],
             "range": [
               "#DEEDCF",
