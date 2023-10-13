@@ -2,8 +2,8 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Number of Migrant Incidents in each Region from 2014 to 2023",
   "background": "transparent",
-  "width":700,
-  "height":300,
+  "width": 700,
+  "height": 300,
   "data": {
     "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
     "format": {
@@ -12,8 +12,24 @@
     }
   },
   "projection": {
-    "type": "equalEarth"
+    "type": "equalEarth",
+    "scale": {
+      "expr": "zoom_level"
+    }
   },
+  "params": [
+    {
+      "name": "zoom_level",
+      "value": 110,
+      "bind": {
+        "input": "range",
+        "min": 100,
+        "max": 1000,
+        "step": 10,
+        "name": "Zoom: "
+      }
+    }
+  ],
   "layer": [
     {
       "mark": {
