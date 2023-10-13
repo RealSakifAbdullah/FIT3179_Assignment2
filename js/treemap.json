@@ -3,6 +3,7 @@
     "data": {
         "url": "https://raw.githubusercontent.com/RealSakifAbdullah/FIT3179_Assignment2/main/data/missing_migrants.csv"
     },
+    "width":200,
     "params": [
         {
             "name": "Selected_Year",

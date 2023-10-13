@@ -10,6 +10,15 @@ p {
 	font-family: Roboto, Arial;
 }
 
+.two-columns {
+	column-count: 2;
+}
+
+.center {
+	display: flex;
+	justify-content: center;
+}
+
 .content {
 	padding-left: 13rem;
 	padding-right: 13rem;
