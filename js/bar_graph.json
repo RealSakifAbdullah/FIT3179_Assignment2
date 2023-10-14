@@ -4,7 +4,6 @@
     "data": {
         "url": "https://raw.githubusercontent.com/RealSakifAbdullah/FIT3179_Assignment2/main/data/missing_migrants.csv"
     },
-    "width": 325,
     "params": [
         {
             "name": "Selected_Year",
@@ -42,6 +41,9 @@
                 "y": {
                     "field": "Cause of Death",
                     "title": "Type of Incident"
+                },
+                "color": {
+                    "value": "#38A038"
                 },
                 "tooltip": [
                     {

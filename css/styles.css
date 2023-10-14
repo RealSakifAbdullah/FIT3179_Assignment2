@@ -26,7 +26,6 @@ p {
 	padding-bottom: 1rem;
 }
 
-/* Apply styles to the black bar */
 .black-bar {
 	background-color: black;
 	color: white;
@@ -38,7 +37,6 @@ p {
 }
 
 
-/* Apply styles to the grey bar at the bottom */
 .grey-bar {
 	background-color: #333;
 	color: white;
@@ -57,23 +55,18 @@ p {
 	border-width: 0;
 	cursor: pointer;
 	padding: 10px 20px;
-	border-radius: 5px;
+	border-radius: 5px;  
 }
 
-/* Style the button on hover */
 .scroll-btn:hover {
 	background-color: #171717;
-	/* Darker blue on hover */
 }
 
 .container {
 	display: flex;
 	justify-content: space-evenly;
-	/* Space evenly between the two columns */
-	/* Add some padding for spacing */
 }
 
-/* Style for each column */
 .column {
 	flex: auto;
 	width: 100%;

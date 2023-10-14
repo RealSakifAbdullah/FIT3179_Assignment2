@@ -3,7 +3,7 @@
     "data": {
         "url": "https://raw.githubusercontent.com/RealSakifAbdullah/FIT3179_Assignment2/main/data/missing_migrants.csv"
     },
-    "width": 200,
+    "width": 175,
     "title": "Where are the migrants going?",
     "params": [
         {
@@ -58,7 +58,21 @@
             "scale": {
                 "scheme": "greens"
             }
-        }
+        },
+        "tooltip": [
+            {
+                "field": "Region of Origin",
+                "type": "nominal"
+            },
+            {
+                "field": "Continent of Incident",
+                "type": "nominal"
+            },
+            {
+                "field": "total",
+                "title": "Number of Incidents"
+            }
+        ]
     },
     "layer": [
         {
